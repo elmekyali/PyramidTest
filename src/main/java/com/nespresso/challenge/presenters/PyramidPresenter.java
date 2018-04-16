@@ -18,7 +18,7 @@ public class PyramidPresenter implements Presenter {
             Layer previousLayer = index == 0 ? null : layers.get(index - 1);
             Layer currentLayer = layers.get(index);
 
-            if (previousLayer == null) figure.add(repeat(currentLayer.getNumberOfBlock(), currentLayer.getBlockType()));
+            if (previousLayer == null) figure.add(repeat(currentLayer.getNumberOfBlock(), currentLayer.getBlock().print()));
             else {
                 int numberOfUnderscore = previousLayer.getNumberOfBlock() - currentLayer.getNumberOfBlock();
                 int numberOfSpace = layers.get(0).getNumberOfBlock() - (numberOfUnderscore + currentLayer.getNumberOfBlock());
@@ -26,7 +26,7 @@ public class PyramidPresenter implements Presenter {
                         String.format("%s%s%s%s%s",
                                 repeat(numberOfSpace / 2, " "),
                                 repeat(numberOfUnderscore / 2, "_"),
-                                repeat(currentLayer.getNumberOfBlock(), currentLayer.getBlockType()),
+                                repeat(currentLayer.getNumberOfBlock(), currentLayer.getBlock().print()),
                                 repeat(numberOfUnderscore / 2, "_"),
                                 repeat(numberOfSpace / 2, " "))
                 );

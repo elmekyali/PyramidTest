@@ -14,11 +14,11 @@ public class Layer {
         return slaves / 50;
     }
 
-    public String getBlockType () {
-        return anks / getNumberOfBlock() >= 2 ? "X" : "V";
+    public Block getBlock () {
+        return anks / getNumberOfBlock() >= 2 ? Block.HIGH_QUALITY : Block.LOW_QUALITY;
     }
 
     public boolean isSame (Layer layer) {
-        return getNumberOfBlock() == layer.getNumberOfBlock() && getBlockType().equals(layer.getBlockType()) ;
+        return getNumberOfBlock() == layer.getNumberOfBlock() && getBlock().equals(layer.getBlock()) ;
     }
 }
